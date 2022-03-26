@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using FoodTime.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<FoodTimeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FoodTimeContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
