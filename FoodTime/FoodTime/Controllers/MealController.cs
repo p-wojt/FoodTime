@@ -38,6 +38,7 @@ public class MealController : Controller
         {
             _db.Meals.Add(obj);
             _db.SaveChanges();
+            TempData["success"] = "Category created successfuly";
             return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
         }
         return View(obj);
@@ -74,6 +75,7 @@ public class MealController : Controller
         {
             _db.Meals.Update(obj);
             _db.SaveChanges();
+            TempData["success"] = "Category updated successfuly";
             return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
         }
         return View(obj);
@@ -109,7 +111,7 @@ public class MealController : Controller
         }
         _db.Meals.Remove(obj);
         _db.SaveChanges();
-
+        TempData["success"] = "Category deleted successfuly"; //zostaje w memory na 1 redirect
         return RedirectToAction("Index");
     }
     
