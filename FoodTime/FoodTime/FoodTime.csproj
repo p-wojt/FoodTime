@@ -31,7 +31,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Sass\base" />
+      <Folder Include="Sass\components" />
     </ItemGroup>
 	
 	<Target Name="Install NPM modules" BeforeTargets="Build" Inputs="package-lock.json" Outputs="node_modules/.install-stamp">
