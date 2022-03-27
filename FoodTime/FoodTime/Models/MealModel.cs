@@ -4,6 +4,8 @@ namespace FoodTime.Models;
 
 public class MealModel
 {
+    [Key]
     public int Id { get; set; }
-    public string name { get; set; }
+    [Required]   
+    public string Name { get; set; }
 }

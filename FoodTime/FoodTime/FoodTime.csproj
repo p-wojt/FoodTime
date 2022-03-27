@@ -8,14 +8,25 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-preview.2.22153.1" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
       <PackageReference Include="MySqlConnector" Version="2.1.8" />
+      <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+      <PackageReference Include="SkyAPM.Diagnostics.EntityFrameworkCore.Pomelo.MySql" Version="1.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Meals\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Meals\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Meals\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Meals\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Meals\Index.cshtml" />
     </ItemGroup>
 
 </Project>
