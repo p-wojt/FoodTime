@@ -1,3 +1,4 @@
+using ExampleApplication;
 using FoodTime.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
+
+//SASS
+#if DEBUG
+   builder.Services.AddHostedService(sp => new NpmWatchHostedService(
+       enabled: sp.GetRequiredService<IWebHostEnvironment>().IsDevelopment(),
+       logger: sp.GetRequiredService<ILogger<NpmWatchHostedService>>()));
+#endif
+
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
