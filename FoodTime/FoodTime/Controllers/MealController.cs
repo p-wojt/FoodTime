@@ -18,4 +18,24 @@ public class MealController : Controller
         IEnumerable<MealModel> objMealList = _db.Meals;
         return View(objMealList);
     }
+
+    //GET
+    public IActionResult Create()
+    {
+        return View();
+    }
+    
+    //POST
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
+    public IActionResult Create(MealModel obj)
+    {
+        if (ModelState.IsValid)
+        {
+            _db.Meals.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
+        }
+        return View(obj);
+    }
 }
