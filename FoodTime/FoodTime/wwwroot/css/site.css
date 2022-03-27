@@ -1,3 +1,101 @@
+/*
+    0 - 600px:      Phone
+    600 - 900px:    Tablet portrait
+    900 - 1200px:   Tablet landscape
+    [1200 - 1800]   is where our normal styles apply
+    1800px + :      Big desktop
+*/
+/*
+$breakpoint argument choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
 
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+}
+
+.heading-primary {
+  color: transparent;
+  background-image: linear-gradient(to left bottom, #55c57a, #28b485);
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  font-size: 12rem;
+  -webkit-background-clip: text;
+  font-weight: 300;
+}
+
+.heading-secondary {
+  color: #333;
+  text-transform: capitalize;
+  letter-spacing: 1rem;
+  font-size: 6rem;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.25;
+}
+.bg-video__content {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  height: 100vh;
+  position: relative;
+}
 
 /*# sourceMappingURL=site.css.map */
