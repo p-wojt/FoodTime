@@ -30,6 +30,10 @@ public class MealController : Controller
     [AutoValidateAntiforgeryToken]
     public IActionResult Create(MealModel obj)
     {
+        /*if (obj.Name == obj.DisplayOrder.ToString()) Custom Validation
+        {
+            ModelState.AddModelError(("name", "The DisplayOrder cannot exaclty match the Name."));
+        }*/
         if (ModelState.IsValid)
         {
             _db.Meals.Add(obj);
