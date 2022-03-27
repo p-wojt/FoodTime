@@ -79,4 +79,38 @@ public class MealController : Controller
         return View(obj);
     }
     
+    public IActionResult Delete(int? id)
+    {
+        if (id == null || id == 0)
+        {
+            return NotFound();
+        }
+
+        var mealFromDb = _db.Meals.Find(id);
+        //var mealFromDbFirst = _db.Meals.FirstOrDefault(u => u.Id == id);
+        //var mealFromDbSingle = _db.Meals.SingleOrDefault(u => u.Id == id);
+
+        if (mealFromDb == null)
+        {
+            return NotFound();
+        }
+        return View(mealFromDb);
+    }
+    
+    //POST
+    [HttpPost, ActionName("Delete")] // jak request pod Delete to chodzi o ta metode
+    [AutoValidateAntiforgeryToken]
+    public IActionResult DeletePOST(int? id)
+    {
+        var obj = _db.Meals.Find(id);
+        if (obj == null)
+        {
+            return NotFound();
+        }
+        _db.Meals.Remove(obj);
+        _db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+    
 }
