@@ -72,7 +72,8 @@ body {
   font-size: 12rem;
   -webkit-background-clip: text;
   font-weight: 700;
-  box-shadow: 0 0 0.25rem 0 #000000;
+  box-shadow: 0 0.25rem 1rem 0 #000000;
+  z-index: 999;
 }
 
 .heading-secondary {
@@ -81,15 +82,18 @@ body {
   letter-spacing: 1rem;
   font-size: 6rem;
   text-shadow: 0.2rem 0.2rem 1rem #000;
+  z-index: 999;
 }
 
 .heading-tertiary {
+  position: relative;
   color: transparent;
   background-image: linear-gradient(to left bottom, #2998ff, #5643fa);
   -webkit-background-clip: text;
   text-transform: uppercase;
   letter-spacing: 1rem;
   font-size: 3.2rem;
+  z-index: 999;
 }
 
 .span-text--green {
@@ -129,6 +133,10 @@ body {
   }
 }
 
+.u-margin-top-small {
+  margin-top: 1.5rem !important;
+}
+
 .u-margin-top-medium {
   margin-top: 4rem !important;
 }
@@ -148,7 +156,31 @@ body {
 
 .form {
   padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem #000;
+  position: relative;
+}
+.form::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 12rem;
   background-color: #333;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  z-index: 1;
+}
+.form::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 9rem;
+  background-color: #333;
+  clip-path: polygon(100% 0, 100% 1000%, 0 100%, 0 25%);
+  z-index: 1;
 }
 .form__inline {
   display: flex;
@@ -164,8 +196,7 @@ body {
   padding: 1.5rem 2rem;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  border-bottom: 3px solid transparent;
+  border: 1px #333 solid;
   width: 100%;
   display: block;
   transition: all 0.3s;
@@ -200,7 +231,10 @@ body {
   transform: translateY(-4rem);
 }
 .form__button {
+  position: relative;
   display: flex;
+  justify-content: flex-end;
+  z-index: 999;
 }
 
 .bg-video {

@@ -13,7 +13,8 @@ body {
   font-size: $font-size-megalarge;
   -webkit-background-clip: text;
   font-weight: 700;
-  box-shadow: 0 0 0.25rem 0 #000000;
+  box-shadow: 0 .25rem 1rem 0 #000000;
+  z-index: 999;
 }
 
 .heading-secondary {
@@ -22,15 +23,18 @@ body {
   letter-spacing: 1rem;
   font-size: $font-size-large;
   text-shadow: .2rem .2rem 1rem $color-black;
+  z-index: 999;
 }
 
 .heading-tertiary {
+  position: relative;
   color: transparent;
   background-image: linear-gradient(to left bottom, $color-tertiary-light, $color-tertiary-dark);
   -webkit-background-clip: text;
   text-transform: uppercase;
   letter-spacing: 1rem;
   font-size: $font-size-medium;
+  z-index: 999;
 }
 
 
