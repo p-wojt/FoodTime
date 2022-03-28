@@ -1,0 +1,22 @@
+﻿.home-menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 5rem;
+  align-items: center;
+  
+  &__delimer {
+    font-size: $font-size-large;
+    color: $color-white;
+    text-shadow: .2rem .2rem .45rem $color-black;
+  }
+  
+  &__link {
+    
+    &:link,
+    &:visited {
+        
+    }
+  }
+}
