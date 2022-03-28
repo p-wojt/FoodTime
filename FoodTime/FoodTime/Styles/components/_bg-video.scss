@@ -1,4 +1,4 @@
-.bg-video{
+.bg-video {
   position: absolute;
   top: 0;
   right: 0;
@@ -9,6 +9,7 @@
   opacity: 0.9;
 
   &__content {
+    position: relative;
     height: 100%;
     width: 100%;
     object-fit: cover;

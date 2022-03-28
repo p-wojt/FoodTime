@@ -24,6 +24,16 @@ body {
   text-shadow: .2rem .2rem 1rem $color-black;
 }
 
+.heading-tertiary {
+  color: transparent;
+  background-image: linear-gradient(to left bottom, $color-tertiary-light, $color-tertiary-dark);
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  font-size: $font-size-medium;
+}
+
+
 .span-text {
   &--green {
     color: $color-primary-light;
@@ -31,5 +41,10 @@ body {
   
   &--gray {
     color: $color-grey-dark-3;
+  }
+  
+  &--error {
+    color: $color-error;
+    font-size: $font-size-default;
   }
 }
