@@ -14,13 +14,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
-{
-    options.SignIn.RequireConfirmedAccount = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-})
+    {
+        options.SignIn.RequireConfirmedAccount = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+    })
+    .AddRoles<ApplicationRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-    
+
 //SASS
 #if DEBUG
    builder.Services.AddHostedService(sp => new NpmWatchHostedService(

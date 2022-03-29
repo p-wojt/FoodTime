@@ -7,7 +7,7 @@
 
 <section class="signup">
     <div class="signup__form">
-        <form method="post" class="form">
+        <form method="post" class="form" asp-route-returnUrl="@Model.ReturnUrl">
             <h3 class="heading-tertiary u-margin-bottom-medium u-center-text">sign up</h3>
             <div class="form__inline">
                 <div class="form__group">
@@ -21,7 +21,6 @@
                     <span asp-validation-for="Input.LastName" class="span-text"></span>
                 </div>
             </div>
-
             <div class="form__group">
                 <label asp-for="Input.Email" class="form__label"></label>
                 <input asp-for="Input.Email" class="form__input" autocomplete="username" aria-required="true"/>
@@ -38,7 +37,7 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="span-text"></span>
             </div>
             <div class="form__button">
-                <button type="submit" class="btn btn--blue u-margin-top-small">Register</button>
+                <button  type="submit" class="btn btn--blue u-margin-top-small">Register</button>
             </div>
         </form>
     </div>

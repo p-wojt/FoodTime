@@ -1,5 +1,6 @@
 ﻿using FoodTime.Areas.Identity.Data;
 using FoodTime.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodTime.Data;
@@ -16,4 +17,6 @@ public class ApplicationDbContext :DbContext
     public DbSet<MealModel> Meals { get; set; }
     
     public DbSet<ApplicationUser> Users { get; set; }
+    
+    public DbSet<IdentityRole> Roles { get; set; }
 }
