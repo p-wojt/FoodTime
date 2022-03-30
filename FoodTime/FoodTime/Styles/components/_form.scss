@@ -3,6 +3,7 @@
   background-color: $color-white;
   box-shadow: 0 0 .5rem $color-black;
   position: relative;
+  min-width: 30rem;
   
   &::before {
     position: absolute;

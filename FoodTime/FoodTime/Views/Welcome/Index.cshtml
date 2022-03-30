@@ -1,0 +1,20 @@
+﻿@using FoodTime.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var firstName = UserManager.GetUserAsync(User)?.Result?.FirstName;
+}
+
+<section class="welcome">
+    <div class="logged-view">
+        <partial name="_MenuPartial"/>
+        <div class="welcome__message">
+            <h1 class="heading-secondary heading-secondary--dark-gray">Hi, <span class="span-text--blue">@firstName</span>!</h1>
+        </div>
+    </div>
+</section>

@@ -18,12 +18,16 @@ body {
 }
 
 .heading-secondary {
-  color: $color-gray-light-2;
   text-transform: capitalize;
   letter-spacing: 1rem;
   font-size: $font-size-large;
   text-shadow: .2rem .2rem 1rem $color-black;
   z-index: 999;
+
+  &--dark-gray{
+    color: $color-grey-dark-3;
+  }
+  
 }
 
 .heading-tertiary {
@@ -45,6 +49,10 @@ body {
   
   &--gray {
     color: $color-grey-dark-3;
+  }
+  
+  &--blue {
+    color: $color-tertiary-light;
   }
   
   &--error {

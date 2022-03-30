@@ -1,0 +1,35 @@
+﻿.logged-menu{
+  position: relative;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  font-size: $font-size-default;
+  background-color: $color-grey-dark-3;
+  opacity: .9;
+  box-shadow: 0 .25rem 1rem $color-black;
+  
+  
+  &__link,
+  &__link:link,
+  &__link:visited{
+    list-style: none;
+    text-decoration: none;
+    color: $color-white;
+    padding: 2rem;
+  }
+  
+  &__title {
+    font-size: $font-size-medium;
+    background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+  
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    list-style: none;
+  }
+  
+}

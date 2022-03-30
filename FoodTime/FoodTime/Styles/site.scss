@@ -11,9 +11,13 @@
 @import "components/bg-video";
 @import "components/button";
 @import "components/home-menu";
+@import "components/logged-menu";
 
 @import "layout/hero";
 @import "layout/navigation";
+@import "layout/logged-view";
 
 @import "pages/home";
 @import "pages/signup";
+@import "pages/signin";
+@import "pages/welcome";

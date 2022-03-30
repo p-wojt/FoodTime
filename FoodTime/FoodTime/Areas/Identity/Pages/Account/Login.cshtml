@@ -5,6 +5,33 @@
     ViewData["Title"] = "Log in";
 }
 
+<section class="signin">
+    <div class="signin__form">
+        <form method="post" class="form">
+            <h3 class="heading-tertiary u-margin-bottom-medium u-center-text">sign in</h3>
+            <div class="form__group">
+                <label asp-for="Input.Email" class="form__label"></label>
+                <input asp-for="Input.Email" class="form__input" autocomplete="username" aria-required="true"/>
+                <span asp-validation-for="Input.Email" class="span-text"></span>
+            </div>
+            <div class="form__group">
+                <label asp-for="Input.Password" class="form__label"></label>
+                <input asp-for="Input.Password" class="form__input" autocomplete="current-password" aria-required="true"/>
+                <span asp-validation-for="Input.Password" class="span-text"></span>
+            </div>
+            <div class="checkbox">
+                <label asp-for="Input.RememberMe" class="checkbox__label">
+                    <input class="checkbox__input" asp-for="Input.RememberMe"/>
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+            <div class="form__button">
+                <button type="submit" class="btn btn--blue u-margin-top-small">Log in</button>
+            </div>
+        </form>
+    </div>
+</section>
+
 @*
 <div class="row">
     <div class="col-md-4">
@@ -82,5 +109,5 @@
 *@
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial"/>
 }
