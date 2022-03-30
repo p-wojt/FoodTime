@@ -21,6 +21,8 @@ public class ApplicationUser : IdentityUser
     [DisplayName("Last name")]
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
+    
+    
     public List<MealModel> UserMeals { get; set; } = new List<MealModel>();
 }
 

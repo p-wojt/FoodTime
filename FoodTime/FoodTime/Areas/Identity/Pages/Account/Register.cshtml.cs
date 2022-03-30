@@ -133,15 +133,13 @@ namespace FoodTime.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    var defaultrole = _roleManager.FindByNameAsync("Default").Result;
+                    if (defaultrole != null)
+                    {
+                        IdentityResult roleresult = await  _userManager.AddToRoleAsync(user, defaultrole.Name);
+                    }
                     _logger.LogInformation("User created a new account with password.");
 
-                    var defaultRole = _roleManager.FindByNameAsync("Default").Result;
-                    
-                    if (defaultRole != null)
-                    {
-                        IdentityResult roleresult = await  _userManager.AddToRoleAsync(user, defaultRole.Name);
-                    }
-                    
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

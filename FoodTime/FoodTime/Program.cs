@@ -19,7 +19,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
         options.Password.RequireLowercase = false;
         options.Password.RequireUppercase = false;
     })
-    .AddRoles<ApplicationRole>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 //SASS
