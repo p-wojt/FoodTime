@@ -1,5 +1,6 @@
 ﻿using FoodTime.Data;
 using FoodTime.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodTime.Controllers;
