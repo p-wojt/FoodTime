@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodTime.Controllers;
 
+[Authorize]
 public class FoodController : Controller
 {
     private readonly ApplicationDbContext _db;

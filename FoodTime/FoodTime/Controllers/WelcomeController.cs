@@ -2,6 +2,7 @@
 
 namespace FoodTime.Controllers;
 
+[Authorize]
 public class WelcomeController : Controller
 {
     // GET
