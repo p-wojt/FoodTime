@@ -1,27 +1,56 @@
 ﻿@model MealModel
 
-<form method="post">
-    <div class="border p-3 mt-4">
-        <div class="row pb-2">
-            <h2 class="text-primary">Create Category</h2>
-            <hr/>
-        </div>
-        @* <div asp-validation-summary="All"></div> *@
-        <div class="mb-3">
-            <label asp-for="Name"></label>
-            <input asp-for="Name" class="form-control">
-            <span asp-validation-for="Name" class="span-text--error"></span>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 150px">Create</button>
-        <a asp-controller="Meal" asp-action="Index" class="btn btn-secondary" style="width: 150px">
-            Back to List
-        </a>
+
+<form method="post" class="form">
+    <h3 class="heading-tertiary u-margin-bottom-medium u-center-text">Create Meal</h3>
+    <div class="form__group">
+        <label asp-for="Name" class="form__label"></label>
+        <input asp-for="Name" class="form__input form__input--sized" aria-required="true"/>
+        <span asp-validation-for="Name" class="span-text"></span>
+    </div>
+    <div class="form__group">
+        <label asp-for="Day" class="form__label"></label>
+        <select asp-for="Day" class="form__select" aria-required="true">
+            <option class="form__option">Monday</option>
+            <option class="form__option">Thuesday</option>
+            <option class="form__option">Wednesday</option>
+            <option class="form__option">Thursday</option>
+            <option class="form__option">Friday</option>
+            <option class="form__option">Saturday</option>
+            <option class="form__option">Sunday</option>
+        </select>
+        <span asp-validation-for="Day" class="span-text"></span>
+    </div>
+    
+    <div class="form__button">
+        <button type="submit" class="btn btn--blue u-margin-top-small">Create</button>
     </div>
 </form>
 
 
+@* <form method="post"> *@
+@*     <div class="border p-3 mt-4"> *@
+@*         <div class="row pb-2"> *@
+@*             <h2 class="text-primary">Create Category</h2> *@
+@*             <hr/> *@
+@*         </div> *@
+@*         $1$ <div asp-validation-summary="All"></div> #1# *@
+@*         <div class="mb-3"> *@
+@*             <label asp-for="Name"></label> *@
+@*             <input asp-for="Name" class="form-control"> *@
+@*             <span asp-validation-for="Name" class="span-text--error"></span> *@
+@*         </div> *@
+@*         <button type="submit" class="btn btn-primary" style="width: 150px">Create</button> *@
+@*         <a asp-controller="Meal" asp-action="Index" class="btn btn-secondary" style="width: 150px"> *@
+@*             Back to List *@
+@*         </a> *@
+@*     </div> *@
+@* </form> *@
+
+
 @* Zawiera skrypt który pozwala nie łączyć/doświeżać się z serwerem
 jak wprowadzone są złe dane w formularzu*@
+
 @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial"/>

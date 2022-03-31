@@ -16,13 +16,19 @@ public class ApplicationUser : IdentityUser
     [DisplayName("First name")]
     [Column(TypeName = "nvarchar(100)")]
     public string FirstName { get; set; }
-    
+
     [PersonalData]
     [DisplayName("Last name")]
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
-    
-    
-    public List<MealModel> UserMeals { get; set; } = new List<MealModel>();
-}
 
+
+    public List<MealModel> UserMeals { get; set; }
+    public List<FoodModel> UserFood { get; set; }
+
+    public ApplicationUser()
+    {
+        UserMeals = new List<MealModel>();
+        UserFood = new List<FoodModel>();
+    }
+}

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodTime.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220330123928_AddRestInitialModels")]
-    partial class AddRestInitialModels
+    [Migration("20220331173155_InitialRenewModelsMigration")]
+    partial class InitialRenewModelsMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -93,7 +93,7 @@ namespace FoodTime.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("FoodTime.Models.MealModel", b =>
+            modelBuilder.Entity("FoodTime.Models.FoodModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,6 +101,12 @@ namespace FoodTime.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("varchar(255)");
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MealModelId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -110,7 +116,64 @@ namespace FoodTime.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Meals");
+                    b.HasIndex("MealModelId");
+
+                    b.ToTable("FoodModel");
+                });
+
+            modelBuilder.Entity("FoodTime.Models.IngredientModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FoodModelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FoodModelId");
+
+                    b.ToTable("IngredientModel");
+                });
+
+            modelBuilder.Entity("FoodTime.Models.MealModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<TimeOnly>("time")
+                        .HasColumnType("time(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("MealModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -245,6 +308,24 @@ namespace FoodTime.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("FoodTime.Models.FoodModel", b =>
+                {
+                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", null)
+                        .WithMany("UserFood")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("FoodTime.Models.MealModel", null)
+                        .WithMany("Food")
+                        .HasForeignKey("MealModelId");
+                });
+
+            modelBuilder.Entity("FoodTime.Models.IngredientModel", b =>
+                {
+                    b.HasOne("FoodTime.Models.FoodModel", null)
+                        .WithMany("Ingredients")
+                        .HasForeignKey("FoodModelId");
+                });
+
             modelBuilder.Entity("FoodTime.Models.MealModel", b =>
                 {
                     b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", null)
@@ -305,7 +386,19 @@ namespace FoodTime.Migrations
 
             modelBuilder.Entity("FoodTime.Areas.Identity.Data.ApplicationUser", b =>
                 {
+                    b.Navigation("UserFood");
+
                     b.Navigation("UserMeals");
+                });
+
+            modelBuilder.Entity("FoodTime.Models.FoodModel", b =>
+                {
+                    b.Navigation("Ingredients");
+                });
+
+            modelBuilder.Entity("FoodTime.Models.MealModel", b =>
+                {
+                    b.Navigation("Food");
                 });
 #pragma warning restore 612, 618
         }

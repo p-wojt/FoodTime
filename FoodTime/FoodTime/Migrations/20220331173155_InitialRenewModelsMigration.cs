@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodTime.Migrations
 {
-    public partial class InitialRenewMigration : Migration
+    public partial class InitialRenewModelsMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -197,23 +197,78 @@ namespace FoodTime.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Meals",
+                name: "MealModel",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Calories = table.Column<int>(type: "int", nullable: false),
+                    Day = table.Column<int>(type: "int", nullable: false),
+                    time = table.Column<TimeOnly>(type: "time(6)", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Meals", x => x.Id);
+                    table.PrimaryKey("PK_MealModel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Meals_AspNetUsers_ApplicationUserId",
+                        name: "FK_MealModel_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "FoodModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Calories = table.Column<int>(type: "int", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "varchar(255)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MealModelId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FoodModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FoodModel_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_FoodModel_MealModel_MealModelId",
+                        column: x => x.MealModelId,
+                        principalTable: "MealModel",
+                        principalColumn: "Id");
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "IngredientModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    Calories = table.Column<int>(type: "int", nullable: false),
+                    FoodModelId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IngredientModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_IngredientModel_FoodModel_FoodModelId",
+                        column: x => x.FoodModelId,
+                        principalTable: "FoodModel",
                         principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -256,8 +311,23 @@ namespace FoodTime.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meals_ApplicationUserId",
-                table: "Meals",
+                name: "IX_FoodModel_ApplicationUserId",
+                table: "FoodModel",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FoodModel_MealModelId",
+                table: "FoodModel",
+                column: "MealModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IngredientModel_FoodModelId",
+                table: "IngredientModel",
+                column: "FoodModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MealModel_ApplicationUserId",
+                table: "MealModel",
                 column: "ApplicationUserId");
         }
 
@@ -279,10 +349,16 @@ namespace FoodTime.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Meals");
+                name: "IngredientModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "FoodModel");
+
+            migrationBuilder.DropTable(
+                name: "MealModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

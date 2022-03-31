@@ -11,5 +11,6 @@ public class UserModel
     public string Firstname { get; set; }
     [DisplayName("Last name")]
     public string Lastname { get; set; }
-    public List<MealModel> Usermeals { get; set; } = new List<MealModel>();
+    public List<MealModel> Usermeals { get; set; }
+    public List<FoodModel> Userfoods { get; set; }
 }

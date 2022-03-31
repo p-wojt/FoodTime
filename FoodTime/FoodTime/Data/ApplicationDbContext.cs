@@ -23,5 +23,8 @@ public class ApplicationDbContext :IdentityDbContext<ApplicationUser>
     public DbSet<MealModel> Meals { get; set; }
     
     public DbSet<ApplicationUser> Users { get; set; }
-
+    
+    public DbSet<MealModel> Ingredient { get; set; }
+    
+    public DbSet<MealModel> Food { get; set; }
 }

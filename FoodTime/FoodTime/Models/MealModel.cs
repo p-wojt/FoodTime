@@ -11,4 +11,12 @@ public class MealModel
     [DisplayName("Meal name")]
     // [Range(1, 100, ErrorMessage = "cos nie tak")]
     public string Name { get; set; }
+
+    public int Calories { get; set; } = 0;
+    
+    public DayOfWeek Day { get; set; }
+    
+    public TimeOnly time { get; set; }
+    
+    public List<FoodModel> Food { get; set; }
 }
