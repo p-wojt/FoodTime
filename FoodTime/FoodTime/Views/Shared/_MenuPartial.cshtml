@@ -15,7 +15,7 @@
             <ul class="logged-menu__list">
                 @* <li class="logged-menu__item"><h2 class="heading-secondary">@firstName</h2></li> *@
                 <li class="logged-menu__item"><a asp-controller="Meal" asp-action="Index" class="logged-menu__link">Meals</a></li>
-                <li class="logged-menu__item"><a class="logged-menu__link">Food</a></li>
+                <li class="logged-menu__item"><a asp-controller="Food" asp-action="Index" class="logged-menu__link">Food</a></li>
                 <li class="logged-menu__item"><a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="logged-menu__link">Logout</a></li>
             </ul>
         </nav>

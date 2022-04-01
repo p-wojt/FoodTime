@@ -1,6 +1,8 @@
-﻿using FoodTime.Data;
+﻿using FoodTime.Areas.Identity.Data;
+using FoodTime.Data;
 using FoodTime.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodTime.Controllers;
@@ -9,10 +11,12 @@ namespace FoodTime.Controllers;
 public class MealController : Controller
 {
     private readonly ApplicationDbContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public MealController(ApplicationDbContext db)
+    public MealController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
     {
         _db = db;
+        _userManager = userManager;
     }
 
     public IActionResult Index()
@@ -26,11 +30,11 @@ public class MealController : Controller
     {
         return View();
     }
-    
+
     //POST
     [HttpPost]
     [AutoValidateAntiforgeryToken]
-    public IActionResult Create(MealModel obj)
+    public async Task<IActionResult> Create(MealModel obj)
     {
         /*if (obj.Name == obj.DisplayOrder.ToString()) Custom Validation
         {
@@ -38,14 +42,19 @@ public class MealController : Controller
         }*/
         if (ModelState.IsValid)
         {
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+
+            obj.ApplicationUser = applicationUser;
+
             _db.Meals.Add(obj);
             _db.SaveChanges();
             TempData["success"] = "Category created successfuly";
             return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
         }
+
         return View(obj);
     }
-    
+
     public IActionResult Edit(int? id)
     {
         if (id == null || id == 0)
@@ -61,9 +70,10 @@ public class MealController : Controller
         {
             return NotFound();
         }
+
         return View(mealFromDb);
     }
-    
+
     //POST
     [HttpPost]
     [AutoValidateAntiforgeryToken]
@@ -80,9 +90,10 @@ public class MealController : Controller
             TempData["success"] = "Category updated successfuly";
             return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
         }
+
         return View(obj);
     }
-    
+
     public IActionResult Delete(int? id)
     {
         if (id == null || id == 0)
@@ -98,9 +109,10 @@ public class MealController : Controller
         {
             return NotFound();
         }
+
         return View(mealFromDb);
     }
-    
+
     //POST
     [HttpPost, ActionName("Delete")] // jak request pod Delete to chodzi o ta metode
     [AutoValidateAntiforgeryToken]
@@ -111,10 +123,10 @@ public class MealController : Controller
         {
             return NotFound();
         }
+
         _db.Meals.Remove(obj);
         _db.SaveChanges();
         TempData["success"] = "Category deleted successfuly"; //zostaje w memory na 1 redirect
         return RedirectToAction("Index");
     }
-    
 }

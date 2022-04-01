@@ -21,10 +21,10 @@ public class ApplicationUser : IdentityUser
     [DisplayName("Last name")]
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
-
-
-    public List<MealModel> UserMeals { get; set; }
-    public List<FoodModel> UserFood { get; set; }
+    
+    public virtual List<MealModel> UserMeals { get; set; }
+    
+    public virtual List<FoodModel> UserFood { get; set; }
 
     public ApplicationUser()
     {

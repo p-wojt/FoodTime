@@ -98,6 +98,7 @@ namespace FoodTime.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<int>("Calories")
@@ -152,6 +153,7 @@ namespace FoodTime.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<int>("Calories")
@@ -308,13 +310,19 @@ namespace FoodTime.Migrations
 
             modelBuilder.Entity("FoodTime.Models.FoodModel", b =>
                 {
-                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", null)
+                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("UserFood")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("FoodTime.Models.MealModel", null)
+                    b.HasOne("FoodTime.Models.MealModel", "MealModel")
                         .WithMany("Food")
                         .HasForeignKey("MealModelId");
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("MealModel");
                 });
 
             modelBuilder.Entity("FoodTime.Models.IngredientModel", b =>
@@ -326,9 +334,13 @@ namespace FoodTime.Migrations
 
             modelBuilder.Entity("FoodTime.Models.MealModel", b =>
                 {
-                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", null)
+                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("UserMeals")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

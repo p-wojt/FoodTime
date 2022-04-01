@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using FoodTime.Areas.Identity.Data;
 
 namespace FoodTime.Models;
 
@@ -13,6 +15,12 @@ public class FoodModel
     public string Name { get; set; }
 
     public int Calories { get; set; }
+
+    [ForeignKey("MealModelId")]
+    public MealModel? MealModel { get; set; }
+
+    [ForeignKey("ApplicationUserId")]
+    public virtual ApplicationUser ApplicationUser { get; set; }
 
     public List<IngredientModel> Ingredients { get; set; }
 
