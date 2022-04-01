@@ -98,6 +98,9 @@ body {
   z-index: 999;
 }
 
+.span-text {
+  display: block;
+}
 .span-text--green {
   color: #55c57a;
 }
@@ -166,6 +169,18 @@ body {
   position: relative;
   min-width: 30rem;
 }
+.form--manage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.form--pseudo::before {
+  content: "";
+}
+.form--pseudo::after {
+  contet: "";
+}
 .form::before {
   position: absolute;
   content: "";
@@ -192,6 +207,12 @@ body {
   display: flex;
   column-gap: 1rem;
 }
+.form__group--manage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .form__group:not(:last-child) {
   margin-bottom: 2rem;
 }
@@ -207,8 +228,8 @@ body {
   display: block;
   transition: all 0.3s;
 }
-.form__input--half-size {
-  width: 50%;
+.form__input--manage {
+  width: 30%;
 }
 @media only screen and (max-width: 56.25em) {
   .form__input {
@@ -233,6 +254,9 @@ body {
   margin-top: 0.7rem;
   display: block;
   transition: all 0.3s;
+}
+.form__label--manage {
+  margin-right: 25%;
 }
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
@@ -360,6 +384,24 @@ body {
   color: #fff;
   text-shadow: 0.2rem 0.2rem 0.45rem #000;
 }
+.ingredient-template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+.ingredient-template__group {
+  width: 20%;
+}
+.ingredient-template__input {
+  padding: 1rem;
+}
+.ingredient-template__label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: -0.25rem;
+}
+
 .logged-menu {
   position: relative;
   display: flex;

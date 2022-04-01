@@ -8,11 +8,11 @@ public class IngredientModel
     [Key]
     public int Id { get; set; }
     [Required]
-    [DisplayName("Ingridient name")]
+    [DisplayName("Ingredient name")]
     // [Range(1, 100, ErrorMessage = "cos nie tak")]
     public string Name { get; set; }
 
-    public int Amount { get; set; } = 0;
+    public string Amount { get; set; }
     
     public int Calories { get; set; } = 0;
 }

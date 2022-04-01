@@ -43,6 +43,8 @@ body {
 
 
 .span-text {
+  display: block;
+  
   &--green {
     color: $color-primary-light;
   }

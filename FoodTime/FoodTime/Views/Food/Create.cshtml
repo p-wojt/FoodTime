@@ -12,12 +12,12 @@
     public List<IngredientModel> Ingridients { get; set; }*@
     <div class="logged-view">
         <partial name="_MenuPartial"/>
-        <form method="post" class="form" id="form">
+        <form method="post" class="form form--manage" id="form">
             <h3 class="heading-tertiary u-margin-bottom-medium u-center-text">Create Food</h3>
-            <div class="form__group">
-                <label asp-for="Name" class="form__label"></label>
-                <input asp-for="Name" class="form__input form__input--half-size" aria-required="true"/>
-                <span asp-validation-for="Name" class="span-text"></span>
+            <div class="form__group--manage">
+                <label asp-for="Name" class="form__label form__label--manage"></label>
+                <input asp-for="Name" class="form__input form__input--manage" aria-required="true"/>
+                <span asp-validation-for="Name" class="span-text span-text--error"></span>
             </div>
             <div class="form__group" id="ingredients-container">
                 @Html.EditorFor(model => model.Ingredients)

@@ -16,16 +16,16 @@
     <div class="ingredient-template__group">
         <label asp-for="Name" class="ingredient-template__label"></label>
         <input type="text" asp-for="Name" class="ingredient-template__input" aria-required="true"/>
-        <span asp-validation-for="Name" class="span-text"></span>
+        <span asp-validation-for="Name" class="span-text span-text--error"></span>
     </div>
     <div class="ingredient-template__group">
         <label asp-for="Amount" class="ingredient-template__label"></label>
-        <input type="number" asp-for="Amount" class="ingredient-template__input" aria-required="true"/>
-        <span asp-validation-for="Amount" class="span-text"></span>
+        <input type="text" asp-for="Amount" class="ingredient-template__input" aria-required="true"/>
+        <span asp-validation-for="Amount" class="span-text span-text--error"></span>
     </div>
     <div class="ingredient-template__group">
         <label asp-for="Calories" class="ingredient-template__label"></label>
         <input type="number" asp-for="Calories" class="ingredient-template__input" aria-required="true"/>
-        <span asp-validation-for="Calories" class="span-text"></span>
+        <span asp-validation-for="Calories" class="span-text span-text--error"></span>
     </div>
 </div>
