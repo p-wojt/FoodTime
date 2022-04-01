@@ -22,9 +22,9 @@ public class ApplicationUser : IdentityUser
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
     
-    public virtual List<MealModel> UserMeals { get; set; }
+    public virtual IList<MealModel> UserMeals { get; set; }
     
-    public virtual List<FoodModel> UserFood { get; set; }
+    public virtual IList<FoodModel> UserFood { get; set; }
 
     public ApplicationUser()
     {

@@ -15,13 +15,7 @@ public class FoodModel
     public string Name { get; set; }
 
     public int Calories { get; set; }
-
-    [ForeignKey("MealModelId")]
-    public MealModel? MealModel { get; set; }
-
-    [ForeignKey("ApplicationUserId")]
-    public virtual ApplicationUser ApplicationUser { get; set; }
-
+    
     public List<IngredientModel> Ingredients { get; set; }
 
     public FoodModel()

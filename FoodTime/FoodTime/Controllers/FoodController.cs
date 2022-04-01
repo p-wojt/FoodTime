@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace FoodTime.Controllers;
 
@@ -39,24 +40,27 @@ public class FoodController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(FoodModel food)
+    public async Task<IActionResult> Create([Bind("Name,Calories,Ingredients")]FoodModel food)
     {
         if (ModelState.IsValid)
         {
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+            applicationUser = await _db.Users.Where(x => x.Id == applicationUser.Id)
+                .Include(x => x.UserFood)
+                .FirstOrDefaultAsync();
+            
+            
             int totalCalories = 0;
             foreach (var ingredient in food.Ingredients)
             {
                 totalCalories += ingredient.Calories;
             }
-            
-            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
-            
-            food.ApplicationUser = applicationUser;
 
             food.Calories = totalCalories;
             food.Name = food.Name.Trim();
 
             _db.Add(food);
+            applicationUser.UserFood.Add(food);
             await _db.SaveChangesAsync();
             return RedirectToAction((nameof(Index)));
         }

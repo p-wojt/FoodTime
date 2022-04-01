@@ -98,7 +98,6 @@ namespace FoodTime.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ApplicationUserId")
-                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<int>("Calories")
@@ -310,19 +309,13 @@ namespace FoodTime.Migrations
 
             modelBuilder.Entity("FoodTime.Models.FoodModel", b =>
                 {
-                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                    b.HasOne("FoodTime.Areas.Identity.Data.ApplicationUser", null)
                         .WithMany("UserFood")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
 
-                    b.HasOne("FoodTime.Models.MealModel", "MealModel")
+                    b.HasOne("FoodTime.Models.MealModel", null)
                         .WithMany("Food")
                         .HasForeignKey("MealModelId");
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("MealModel");
                 });
 
             modelBuilder.Entity("FoodTime.Models.IngredientModel", b =>
