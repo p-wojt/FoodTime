@@ -13,28 +13,28 @@
                 <div class="form__group">
                     <label asp-for="Input.FirstName" class="form__label"></label>
                     <input asp-for="Input.FirstName" class="form__input" autocomplete="first-name" aria-required="true"/>
-                    <span asp-validation-for="Input.FirstName" class="span-text"></span>
+                    <span asp-validation-for="Input.FirstName" class="span-text span-text--error"></span>
                 </div>
                 <div class="form__group">
                     <label asp-for="Input.LastName" class="form__label"></label>
                     <input asp-for="Input.LastName" class="form__input" autocomplete="last-name" aria-required="true"/>
-                    <span asp-validation-for="Input.LastName" class="span-text"></span>
+                    <span asp-validation-for="Input.LastName" class="span-text span-text--error"></span>
                 </div>
             </div>
             <div class="form__group">
                 <label asp-for="Input.Email" class="form__label"></label>
                 <input asp-for="Input.Email" class="form__input" autocomplete="username" aria-required="true"/>
-                <span asp-validation-for="Input.Email" class="span-text"></span>
+                <span asp-validation-for="Input.Email" class="span-text span-text--error"></span>
             </div>
             <div class="form__group">
                 <label asp-for="Input.Password" class="form__label"></label>
                 <input asp-for="Input.Password" class="form__input" autocomplete="new-password" aria-required="true"/>
-                <span asp-validation-for="Input.Password" class="span-text"></span>
+                <span asp-validation-for="Input.Password" class="span-text span-text--error"></span>
             </div>
             <div class="form__group">
                 <label asp-for="Input.ConfirmPassword" class="form__label"></label>
                 <input asp-for="Input.ConfirmPassword" class="form__input" autocomplete="new-password" aria-required="true"/>
-                <span asp-validation-for="Input.ConfirmPassword" class="span-text"></span>
+                <span asp-validation-for="Input.ConfirmPassword" class="span-text span-text--error"></span>
             </div>
             <div class="form__button">
                 <button  type="submit" class="btn btn--blue u-margin-top-small">Register</button>

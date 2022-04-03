@@ -112,7 +112,6 @@ body {
 }
 .span-text--error {
   color: #ED4337;
-  font-size: 1.6rem;
 }
 
 .u-center-text {
@@ -212,6 +211,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.form__group {
+  flex-grow: 1;
 }
 .form__group:not(:last-child) {
   margin-bottom: 2rem;
@@ -459,6 +461,7 @@ body {
   height: 100vh;
 }
 .signup__form {
+  width: 50rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -470,6 +473,8 @@ body {
   height: 100vh;
 }
 .signin__form {
+  width: 50rem;
+  height: 50rem;
   position: absolute;
   top: 50%;
   left: 50%;

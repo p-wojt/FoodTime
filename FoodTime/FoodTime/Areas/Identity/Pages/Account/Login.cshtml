@@ -12,12 +12,12 @@
             <div class="form__group">
                 <label asp-for="Input.Email" class="form__label"></label>
                 <input asp-for="Input.Email" class="form__input" autocomplete="username" aria-required="true"/>
-                <span asp-validation-for="Input.Email" class="span-text"></span>
+                <span asp-validation-for="Input.Email" class="span-text span-text--error"></span>
             </div>
             <div class="form__group">
                 <label asp-for="Input.Password" class="form__label"></label>
                 <input asp-for="Input.Password" class="form__input" autocomplete="current-password" aria-required="true"/>
-                <span asp-validation-for="Input.Password" class="span-text"></span>
+                <span asp-validation-for="Input.Password" class="span-text span-text--error"></span>
             </div>
             <div class="checkbox">
                 <label asp-for="Input.RememberMe" class="checkbox__label">

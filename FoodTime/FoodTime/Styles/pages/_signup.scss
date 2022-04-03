@@ -3,6 +3,7 @@
   height: 100vh;
   
   &__form {
+    width: 50rem;
     @include centerAbsolute;
   }
 }

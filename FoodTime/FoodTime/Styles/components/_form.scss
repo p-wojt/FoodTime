@@ -60,6 +60,10 @@
     flex-direction: column;
   }
   
+  &__group {
+    flex-grow: 1;
+  }
+  
   &__group:not(:last-child) {
     margin-bottom: 2rem;
   }
