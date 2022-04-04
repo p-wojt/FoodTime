@@ -99,7 +99,9 @@ body {
 }
 
 .span-text {
-  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem;
 }
 .span-text--green {
   color: #55c57a;
@@ -265,12 +267,21 @@ body {
   visibility: hidden;
   transform: translateY(-4rem);
 }
+.form__ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4rem;
+  justify-content: center;
+}
 .form__button {
   position: relative;
   display: flex;
   justify-content: flex-end;
   z-index: 999;
-  column-gap: 1rem;
+  column-gap: 5rem;
+}
+.form__button--manage {
+  margin-right: 1rem;
 }
 
 .bg-video {
@@ -393,10 +404,11 @@ body {
   margin-top: 4rem;
 }
 .ingredient-template__group {
-  width: 20%;
+  width: 20rem;
 }
 .ingredient-template__input {
   padding: 1rem;
+  width: 100%;
 }
 .ingredient-template__label {
   display: block;

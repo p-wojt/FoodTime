@@ -4,7 +4,6 @@ using FoodTime.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodTime.Controllers;
@@ -22,9 +21,12 @@ public class FoodController : Controller
     }
 
     // GET
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        ApplicationUser contextUser = await _userManager.GetUserAsync(User);
+        ApplicationUser applicationUser = _db.Users.Where(x => x.Id == contextUser.Id).Include(x => x.UserFood).FirstOrDefaultAsync().Result!;
+        IEnumerable<FoodModel> food = applicationUser.UserFood;
+        return View(food);
     }
 
     public async Task<ActionResult> AddIngredient([Bind("Ingredients")] FoodModel food)
@@ -59,8 +61,10 @@ public class FoodController : Controller
             food.Calories = totalCalories;
             food.Name = food.Name.Trim();
 
-            _db.Add(food);
             applicationUser.UserFood.Add(food);
+            
+            _db.Users.Update(applicationUser);
+            _db.Food.Add(food);
             await _db.SaveChangesAsync();
             return RedirectToAction((nameof(Index)));
         }

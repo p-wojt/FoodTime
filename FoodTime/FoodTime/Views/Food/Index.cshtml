@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MealModel>
+﻿@model IEnumerable<FoodModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,5 +6,12 @@
 
 <section class="food">
     <partial name="_MenuPartial"/>
-    
+    <ul class="food__list">
+        @foreach (var food in Model)
+        {
+            <li class="meal__item">
+              @food.Name
+            </li>
+        }
+    </ul>
 </section>

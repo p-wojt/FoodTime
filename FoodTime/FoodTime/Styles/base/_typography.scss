@@ -43,7 +43,9 @@ body {
 
 
 .span-text {
-  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: $font-size-small;
   
   &--green {
     color: $color-primary-light;

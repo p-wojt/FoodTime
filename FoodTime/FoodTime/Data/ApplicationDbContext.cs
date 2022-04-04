@@ -19,12 +19,13 @@ public class ApplicationDbContext :IdentityDbContext<ApplicationUser>
         base.OnModelCreating(modelBuilder);
     }
 
+
+    public DbSet<ApplicationUser> Users { get; set; }
+
     //Create table with name Meals
     public DbSet<MealModel> Meals { get; set; }
-    
-    public DbSet<ApplicationUser> Users { get; set; }
-    
-    public DbSet<MealModel> Ingredient { get; set; }
-    
-    public DbSet<MealModel> Food { get; set; }
+
+    public DbSet<FoodModel> Food { get; set; }
+
+    public DbSet<IngredientModel> Ingredient { get; set; }
 }

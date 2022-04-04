@@ -17,12 +17,12 @@
             <div class="form__group--manage">
                 <label asp-for="Name" class="form__label form__label--manage"></label>
                 <input asp-for="Name" class="form__input form__input--manage" aria-required="true"/>
-                <span asp-validation-for="Name" class="span-text span-text--error"></span>
+                <span asp-validation-for="Name" class="span-text span-text--error span-text--main"></span>
             </div>
-            <div class="form__group" id="ingredients-container">
+            <div class="form__group form__ingredients" id="ingredients-container">
                 @Html.EditorFor(model => model.Ingredients)
             </div>
-            <div class="form__button">
+            <div class="form__button form__button--manage">
                 <button type="button" class="btn btn--blue u-margin-top-small" id="addIngredient">Add Ingredient</button>
                 <button type="submit" class="btn btn--blue u-margin-top-small">Create</button>
             </div>
