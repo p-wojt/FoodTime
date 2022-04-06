@@ -1,6 +1,5 @@
 ﻿using FoodTime.Areas.Identity.Data;
 using FoodTime.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

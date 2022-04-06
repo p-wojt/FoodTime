@@ -463,6 +463,36 @@ body {
   background-color: #f7f7f7;
 }
 
+.food {
+  height: 95vh;
+}
+.food__table {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+  color: #000;
+}
+.food__headings {
+  font-size: 3.2rem;
+}
+.food__item {
+  font-size: 1.6rem;
+  height: 5rem;
+  text-align: center;
+  background-color: #eee;
+  transition: 0.2s all;
+}
+.food__item:hover {
+  box-shadow: 0 0 0.2rem black;
+  transform: translateY(-0.25rem);
+}
+.food__name {
+  padding: 2rem;
+}
 .home {
   height: 100vh;
   position: relative;
