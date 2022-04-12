@@ -68,7 +68,13 @@ public class FoodController : Controller
             await _db.SaveChangesAsync();
             return RedirectToAction((nameof(Index)));
         }
-
         return View(food);
+    }
+
+    [HttpGet]
+    public IActionResult GetAllIngredients(long foodId)
+    {
+        List<IngredientModel> ingredients = _db.Ingredient.Where(x => x.Id == foodId).ToList();
+        return View(ingredients);
     }
 }

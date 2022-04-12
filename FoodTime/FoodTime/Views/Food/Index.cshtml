@@ -20,3 +20,20 @@
         }
     </table>
 </section>
+
+@section Scripts
+{
+    <script type="text/javascript">
+    $("#getIngredients").on('click', function (){
+        $.ajax({
+            async: true,
+            dataType: 'json',
+            type: "GET",
+            url: '/Food/AddIngredient',
+            success: function (partialView) {
+                $("#ingredients-container").html(partialView);    
+            }
+        });
+    });
+    </script>
+}
