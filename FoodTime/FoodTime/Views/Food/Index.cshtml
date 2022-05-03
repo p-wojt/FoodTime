@@ -10,12 +10,14 @@
         <tr class="food__headings">
             <th>Name</th>
             <th>Calories</th>
+            <th></th>
         </tr>
         @foreach (var food in Model)
         {
             <tr class="food__item">
                 <td class="food__name">@food.Name</td>
                 <td class="food__calories">@food.Calories</td>
+                <td class="food_ingredients-redirect"><a class="food__link" asp-controller="Food" asp-action="FoodIngredients" asp-route-foodId="@food.Id">Ingredients</a></td>
             </tr>
         }
     </table>

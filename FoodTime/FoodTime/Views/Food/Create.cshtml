@@ -1,15 +1,5 @@
 ﻿@model FoodModel
 
-@*[Key]
-    public int Id { get; set; }
-    [Required]
-    [DisplayName("Food name")]
-    // [Range(1, 100, ErrorMessage = "cos nie tak")]
-    public string Name { get; set; }
-
-    public int Calories { get; set; } = 0;
-
-    public List<IngredientModel> Ingridients { get; set; }*@
     <div class="logged-view">
         <partial name="_MenuPartial"/>
         <form method="post" class="form form--manage" id="form">

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<IngredientModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<section class="ingredients">
+    <partial name="_MenuPartial"/>
+    <table class="food__table">
+        <tr class="food__headings">
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Calories</th>
+        </tr>
+        @foreach (var ingredient in Model)
+        {
+            <tr class="food__item">
+                <td class="food__name">@ingredient.Name</td>
+                <td class="food__amount">@ingredient.Amount</td>
+                <td class="food__calories">@ingredient.Calories</td>
+            </tr>
+        }
+    </table>
+</section>

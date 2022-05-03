@@ -13,7 +13,7 @@ public class FoodController : Controller
 {
     private readonly ApplicationDbContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
-    
+
     public FoodController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
     {
         _db = db;
@@ -72,7 +72,7 @@ public class FoodController : Controller
     }
 
     [HttpGet]
-    public IActionResult GetAllIngredients(long foodId)
+    public IActionResult FoodIngredients(long foodId)
     {
         List<IngredientModel> ingredients = _db.Ingredient.Where(x => x.Id == foodId).ToList();
         return View(ingredients);

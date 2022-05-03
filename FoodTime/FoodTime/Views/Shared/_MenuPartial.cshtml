@@ -11,7 +11,7 @@
 @if (SignInManager.IsSignedIn(User))
     {
         <nav class="logged-menu">
-            <h3 class="logged-menu__title">Food Time</h3>
+            <h3 class="logged-menu__title"><a asp-controller="Meal" asp-action="Index" class="logged-menu__title">Food Time</a></h3>
             <ul class="logged-menu__list">
                 @* <li class="logged-menu__item"><h2 class="heading-secondary">@firstName</h2></li> *@
                 <li class="logged-menu__item"><a asp-controller="Meal" asp-action="Index" class="logged-menu__link">Meals</a></li>
