@@ -456,6 +456,11 @@ body {
   align-items: center;
   animation: fade 2s ease-out;
 }
+@media only screen and (max-width: 1300px) {
+  .hero {
+    top: 50%;
+  }
+}
 
 .logged-view {
   height: 100vh;
