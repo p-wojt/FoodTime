@@ -3,10 +3,14 @@
   
   &__table {
     @include centerAbsolute;
-    width: 50%;
+    width: 40%;
     border-collapse: separate;
     border-spacing: 0 1rem;
     color: $color-black;
+  }
+  
+  &__create {
+    text-align: center;
   }
   
   &__headings {

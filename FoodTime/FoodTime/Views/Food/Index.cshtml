@@ -6,6 +6,7 @@
 
 <section class="food">
     <partial name="_MenuPartial"/>
+    <div class="food__create"><a class="btn btn--blue u-margin-top-small" asp-controller="Food" asp-action="Create">Create</a></div>
     <table class="food__table">
         <tr class="food__headings">
             <th>Name</th>
@@ -17,7 +18,10 @@
             <tr class="food__item">
                 <td class="food__name">@food.Name</td>
                 <td class="food__calories">@food.Calories</td>
-                <td class="food_ingredients-redirect"><a class="food__link" asp-controller="Food" asp-action="FoodIngredients" asp-route-foodId="@food.Id">Ingredients</a></td>
+                <td class="food_ingredients-redirect">
+                    <a class="food__link" asp-controller="Food" asp-action="FoodIngredients" asp-route-foodId="@food.Id">Ingredients</a>
+                    <a class="food__link" asp-controller="Food" asp-action="Delete" asp-route-id="@food.Id">Delete</a>
+                </td>
             </tr>
         }
     </table>

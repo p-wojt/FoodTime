@@ -476,10 +476,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 40%;
   border-collapse: separate;
   border-spacing: 0 1rem;
   color: #000;
+}
+.food__create {
+  text-align: center;
 }
 .food__headings {
   font-size: 3.2rem;
