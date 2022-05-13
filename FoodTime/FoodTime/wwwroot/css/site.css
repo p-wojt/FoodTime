@@ -363,6 +363,14 @@ body {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
+.btn--danger {
+  background-color: #ED4337;
+  color: #fff;
+}
+.btn--back {
+  background-color: #7ed56f;
+  color: #fff;
+}
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
@@ -468,6 +476,13 @@ body {
   background-color: #f7f7f7;
 }
 
+.delete {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .food {
   height: 95vh;
 }
@@ -480,6 +495,12 @@ body {
   border-collapse: separate;
   border-spacing: 0 1rem;
   color: #000;
+}
+.food__link, .food__link:visited, .food__link:link {
+  text-decoration: none;
+  letter-spacing: 1.6px;
+  color: #000;
+  transition: all 0.2s;
 }
 .food__create {
   text-align: center;

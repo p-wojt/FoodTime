@@ -20,6 +20,7 @@
                 <td class="food__calories">@food.Calories</td>
                 <td class="food_ingredients-redirect">
                     <a class="food__link" asp-controller="Food" asp-action="FoodIngredients" asp-route-foodId="@food.Id">Ingredients</a>
+                    &verbar;
                     <a class="food__link" asp-controller="Food" asp-action="Delete" asp-route-id="@food.Id">Delete</a>
                 </td>
             </tr>

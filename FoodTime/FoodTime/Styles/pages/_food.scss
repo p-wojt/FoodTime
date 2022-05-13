@@ -9,6 +9,15 @@
     color: $color-black;
   }
   
+  &__link,
+  &__link:visited,
+  &__link:link{
+    text-decoration: none;
+    letter-spacing: 1.6px;
+    color: $color-black;
+    transition: all .2s;
+  }
+  
   &__create {
     text-align: center;
   }

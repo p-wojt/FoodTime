@@ -104,7 +104,7 @@ public class FoodController : Controller
         }
 
 
-    [HttpPost, ActionName("Delete")] // jak request pod Delete to chodzi o ta metode
+    [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteFood(int? id)
     {
@@ -113,9 +113,12 @@ public class FoodController : Controller
         {
             return NotFound();
         }
-
-        List<IngredientModel> ingredients = _db.Ingredient.Where(x => x.Id == food.Id).ToList();
-        foreach (var ingredientModel in ingredients)
+        
+        FoodModel foodModel = _db.Food
+            .Where(x => x.Id == id)
+            .Include(x => x.Ingredients)
+            .FirstOrDefault();
+        foreach (var ingredientModel in foodModel.Ingredients)
         {
             _db.Ingredient.Remove(ingredientModel);
         }
