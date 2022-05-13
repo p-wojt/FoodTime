@@ -77,8 +77,12 @@ public class FoodController : Controller
     [HttpGet]
     public IActionResult FoodIngredients(long? foodId)
     {
-        List<IngredientModel> ingredients = _db.Ingredient.Where(x => x.Id == foodId).ToList();
-        return View(ingredients);
+        FoodModel foodModel = _db.Food
+            .Where(x => x.Id == foodId)
+            .Include(x => x.Ingredients)
+            .FirstOrDefault();
+        
+        return View(foodModel.Ingredients);
     }
     
     
