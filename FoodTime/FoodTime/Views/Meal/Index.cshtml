@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-    <div class="meal">
+<seciton class="meal">
         <partial name="_MenuPartial"/>
+        <div class="food__create"><a class="btn btn--blue u-margin-top-small" asp-controller="Meal" asp-action="Create">Create</a></div>
         <ul class="meal__list">
             @foreach (var meal in Model)
                     {
@@ -14,7 +14,7 @@
                         </li>
                     }
         </ul>
-    </div>
+    </seciton>
 @*<div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">

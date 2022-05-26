@@ -27,7 +27,7 @@ public class MealController : Controller
 
     //GET
     public IActionResult Create()
-    {
+    {  
         return View();
     }
 
@@ -48,7 +48,7 @@ public class MealController : Controller
 
             _db.Meals.Add(obj);
             _db.SaveChanges();
-            TempData["success"] = "Category created successfuly";
+            TempData["success"] = "Meal created successfuly";
             return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
         }
 

@@ -1,6 +1,5 @@
 ﻿@model MealModel
 
-
 <form method="post" class="form">
     <h3 class="heading-tertiary u-margin-bottom-medium u-center-text">Create Meal</h3>
     <div class="form__group">
@@ -21,9 +20,12 @@
         </select>
         <span asp-validation-for="Day" class="span-text"></span>
     </div>
+    <div class="form__group">
+            
+    </div>
     
     <div class="form__button">
-        <button type="submit" class="btn btn--blue u-margin-top-small">Create</button>
+        <button asp-action="Create" type="submit" class="btn btn--blue u-margin-top-small">Create</button>
     </div>
 </form>
 
