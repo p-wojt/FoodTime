@@ -1,6 +1,6 @@
 # FoodTime
 
-Dokumentacja projektu - dokumentacja.pdf
+Dokumentacja projektu - **dokumentacja.pdf**
 
 # Demo
 ![image](https://user-images.githubusercontent.com/44068045/170645650-3a99a3e0-8cab-4c75-9c67-d1647974928c.png)
