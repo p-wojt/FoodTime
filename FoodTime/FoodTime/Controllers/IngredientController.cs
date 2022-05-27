@@ -6,11 +6,5 @@ namespace FoodTime.Controllers;
 [Authorize]
 public class IngredientController : Controller
 {
-    // GET
-    // public IActionResult Index()
-    // {
-    //     return View();
-    // }
-    //
     
 }

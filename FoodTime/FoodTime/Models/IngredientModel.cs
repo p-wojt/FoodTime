@@ -9,7 +9,6 @@ public class IngredientModel
     public int Id { get; set; }
     [Required]
     [DisplayName("Ingredient name")]
-    // [Range(1, 100, ErrorMessage = "cos nie tak")]
     public string Name { get; set; }
 
     public string Amount { get; set; }

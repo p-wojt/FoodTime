@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Versioning;
 
 namespace FoodTime.Controllers;
 
@@ -21,7 +20,6 @@ public class FoodController : Controller
         _userManager = userManager;
     }
 
-    // GET
     public async Task<IActionResult> Index()
     {
         ApplicationUser contextUser = await _userManager.GetUserAsync(User);
@@ -124,7 +122,7 @@ public class FoodController : Controller
         }
         _db.Food.Remove(food);
         _db.SaveChanges();
-        TempData["success"] = "Food deleted successfuly"; // zostaje w memory na 1 redirect
+        TempData["success"] = "Food deleted successfuly";
 
         return RedirectToAction("Index");
     }

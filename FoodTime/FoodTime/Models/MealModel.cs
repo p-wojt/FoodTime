@@ -11,7 +11,6 @@ public class MealModel
 
     [Required]
     [DisplayName("Meal name")]
-    // [Range(1, 100, ErrorMessage = "cos nie tak")]
     public string Name { get; set; }
 
     public int Calories { get; set; } = 0;

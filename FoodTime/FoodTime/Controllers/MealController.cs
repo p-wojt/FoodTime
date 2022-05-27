@@ -25,21 +25,15 @@ public class MealController : Controller
         return View(objMealList);
     }
 
-    //GET
     public IActionResult Create()
     {  
         return View();
     }
 
-    //POST
     [HttpPost]
     [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> Create(MealModel obj)
     {
-        /*if (obj.Name == obj.DisplayOrder.ToString()) Custom Validation
-        {
-            ModelState.AddModelError(("name", "The DisplayOrder cannot exaclty match the Name."));
-        }*/
         if (ModelState.IsValid)
         {
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
@@ -49,7 +43,7 @@ public class MealController : Controller
             _db.Meals.Add(obj);
             _db.SaveChanges();
             TempData["success"] = "Meal created successfuly";
-            return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
+            return RedirectToAction("Index");
         }
 
         return View(obj);
@@ -63,8 +57,6 @@ public class MealController : Controller
         }
 
         var mealFromDb = _db.Meals.Find(id);
-        //var mealFromDbFirst = _db.Meals.FirstOrDefault(u => u.Id == id);
-        //var mealFromDbSingle = _db.Meals.SingleOrDefault(u => u.Id == id);
 
         if (mealFromDb == null)
         {
@@ -74,21 +66,16 @@ public class MealController : Controller
         return View(mealFromDb);
     }
 
-    //POST
     [HttpPost]
     [AutoValidateAntiforgeryToken]
     public IActionResult Edit(MealModel obj)
     {
-        /*if (obj.Name == obj.DisplayOrder.ToString()) Custom Validation
-        {
-            ModelState.AddModelError(("name", "The DisplayOrder cannot exaclty match the Name."));
-        }*/
         if (ModelState.IsValid)
         {
             _db.Meals.Update(obj);
             _db.SaveChanges();
             TempData["success"] = "Category updated successfuly";
-            return RedirectToAction("Index"); // jak w innym kontrolerze RedirectToAction("Index", "nazwa kontrolera")
+            return RedirectToAction("Index");
         }
 
         return View(obj);
@@ -102,8 +89,6 @@ public class MealController : Controller
         }
 
         var mealFromDb = _db.Meals.Find(id);
-        //var mealFromDbFirst = _db.Meals.FirstOrDefault(u => u.Id == id);
-        //var mealFromDbSingle = _db.Meals.SingleOrDefault(u => u.Id == id);
 
         if (mealFromDb == null)
         {
@@ -112,9 +97,8 @@ public class MealController : Controller
 
         return View(mealFromDb);
     }
-
-    //POST
-    [HttpPost, ActionName("Delete")] // jak request pod Delete to chodzi o ta metode
+    
+    [HttpPost, ActionName("Delete")]
     [AutoValidateAntiforgeryToken]
     public IActionResult DeletePOST(int? id)
     {
@@ -126,7 +110,7 @@ public class MealController : Controller
 
         _db.Meals.Remove(obj);
         _db.SaveChanges();
-        TempData["success"] = "Category deleted successfuly"; //zostaje w memory na 1 redirect
+        TempData["success"] = "Category deleted successfuly";
         return RedirectToAction("Index");
     }
 }
