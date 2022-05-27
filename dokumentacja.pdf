@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+
+%opening
+\title{FoodTime}
+\author{Patryk Wojtiuk}
+
+\begin{document}
+
+\maketitle
+
+\section*{Opis projektu}
+\paragraph{} Realizacja projektu polegała na możliwości zapisu konkretnych potraw z zdefiniowanymi składnikami przez użytkownika. Rozwiązanie można definiować jako pewien magazyn zawierający informacje dotyczące potraw takie jak:
+\begin{itemize}
+	\item nazwa potrawy
+	\item ilość kalorii - suma kalorii wszystkich składników
+	\item składniki
+\end{itemize}
+\\ \paragraph{} Oprócz dodawania potraw, użytkownik może podglądnąć składniki dla potrawy oraz usunąć konkretną potrawę za pomocą przycisku Delete, znajdującym się tuż obok określonej potrawy.
+\\
+
+Użyte modele:
+\begin{itemize}
+	\item ApplicationUser
+	\item Meal
+	\item Food
+	\item Ingredient
+\end{itemize}
+\\ \paragraph{} Demonstracyjne zdjęcia aplikacji zostały przedstawione w pliku README.md.
+
+\end{document}
